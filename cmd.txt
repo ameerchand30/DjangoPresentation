@@ -1,0 +1,50 @@
+python -m venv provenv
+
+provenv\scripts\activate
+
+pip install Django
+
+django-admin startproject config .
+code .
+
+mkdir apps static media templates docker 
+
+touch requirements.txt
+
+python manage.py startapp accounts apps/accounts
+python manage.py startapp core apps/core
+
+setting.py
+
+static et media
+
+
+
+
+.env 
+
+pip install -r requirements.txt
+python manage.py runserver
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+setting.py
+
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'],  # Add this line
+        'APP_DIRS': True,
+        ...existing code...
+    },
+]
+
+
+
+
+

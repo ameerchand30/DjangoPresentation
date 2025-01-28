@@ -1,0 +1,22 @@
+# Web Framework
+Django==4.2.0
+djangorestframework==3.14.0
+django-cors-headers==4.0.0
+
+# Database
+psycopg2
+
+# Environment & Utils
+python-dotenv==1.0.0
+requests==2.31.0
+Pillow==9.5.0
+
+# Development Tools
+pytest==7.3.1
+coverage==7.2.3
+black==23.3.0
+flake8==6.0.0
+
+
+# Production Server
+gunicorn==20.1.0
