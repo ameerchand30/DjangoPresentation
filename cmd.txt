@@ -45,6 +45,9 @@ TEMPLATES = [
 ]
 
 
+29/01/2025
+
+python manage.py startapp contact apps/contact 
 
 
 

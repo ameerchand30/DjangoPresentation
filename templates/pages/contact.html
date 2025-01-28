@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">{% if contact %}Update Contact{% else %}Contact Us{% endif %}</h2>
+                <form class="contact-form" method="POST" action="{% if contact %}{% url 'contact_edit' contact.id %}{% else %}{% url 'contact' %}{% endif %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" 
+                               value="{{ contact.name|default:'' }}" 
+                               placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               value="{{ contact.email|default:'' }}"
+                               placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" 
+                               value="{{ contact.subject|default:'' }}"
+                               placeholder="Enter subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" 
+                                 placeholder="Enter your message" required>{{ contact.message|default:'' }}</textarea>
+                    </div>
+                    <div class="btn-group w-100">
+                        <button type="submit" class="btn btn-primary">
+                            {% if contact %}Update{% else %}Send{% endif %} Message
+                        </button>
+                            <a href="{% url 'contact_list' %}" class="btn btn-secondary">View Contact List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
