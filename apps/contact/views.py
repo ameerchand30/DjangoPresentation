@@ -16,8 +16,8 @@ def contact_view(request):
 def contact_list(request):
     contacts = Contact.objects.all().order_by('-created_at')
     return render(request, 'pages/contact_list.html', {'contacts': contacts})
-def contact_edit(request, pk):
-    contact = Contact.objects.get(pk=pk)
+def contact_edit(request, val):
+    contact = Contact.objects.get(pk=val)
     if request.method == 'POST':
         contact.name = request.POST['name']
         contact.email = request.POST['email']
